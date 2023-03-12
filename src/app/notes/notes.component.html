@@ -1,18 +1,28 @@
 <div>
-  <div *ngFor="let note of notes">
-    <span class="todo-name">{{note.name}}: </span>
-    <span class="todo-desc">{{note.description}}</span>
+  <div class="todo-list">
+    <select [(ngModel)]="selectedNote" 
+    multiple 
+    >
+      <option *ngFor="let note of notes">
+        <span class="todo-name">
+          {{note.name}}:
+        </span>
+        <span class="todo-desc">
+          {{note.description}}
+        </span>
+      </option>
+    </select>
   </div>
-  <form [formGroup]="notesForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="notesForm" (ngSubmit)="onSubmit()" autocomplete="off">
     <div>
-      <input id="todo-name" type="text" formControlName="name"/>
+      <input id="todo-name" class="todo-input" type="text" formControlName="name" />
     </div>
     <div>
-      <input id="todo-desc" type="text" formControlName="description"/>
+      <input id="todo-desc" class="todo-input" type="text" formControlName="description" />
     </div>
-      
-    <button class="button" type="submit">Add</button>
-    
-    </form>
+
+    <button type="submit">Add</button>
+    <button type="button" (click)="onDelete()">Remove</button>
+  </form>
 
 </div>
