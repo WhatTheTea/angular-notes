@@ -1,0 +1,10 @@
+.todo-name
+{
+    font: larger Arial;
+    color: #202020;
+    font-weight: bolder;
+}
+.todo-desc
+{
+    font: normal Arial;
+}
