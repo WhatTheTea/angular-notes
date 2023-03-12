@@ -1,1 +1,18 @@
-<p>My new component, lol</p>
+<div>
+  <div *ngFor="let note of notes">
+    <span class="todo-name">{{note.name}}: </span>
+    <span class="todo-desc">{{note.description}}</span>
+  </div>
+  <form [formGroup]="notesForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input id="todo-name" type="text" formControlName="name"/>
+    </div>
+    <div>
+      <input id="todo-desc" type="text" formControlName="description"/>
+    </div>
+      
+    <button class="button" type="submit">Add</button>
+    
+    </form>
+
+</div>
